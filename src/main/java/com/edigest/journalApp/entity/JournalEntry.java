@@ -1,5 +1,6 @@
 package com.edigest.journalApp.entity;
 
+import com.edigest.journalApp.enums.Sentiment;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,4 +24,5 @@ public class JournalEntry {
     private String title;
     private String content;
     private LocalDateTime date;
+    private Sentiment sentiment;
 }

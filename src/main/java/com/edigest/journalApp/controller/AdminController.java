@@ -1,6 +1,7 @@
 package com.edigest.journalApp.controller;
 
 
+import com.edigest.journalApp.cache.AppCache;
 import com.edigest.journalApp.entity.User;
 import com.edigest.journalApp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class AdminController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private AppCache appCache;
+
     @GetMapping
     public ResponseEntity<?> getAllUsers() {
         List<User> all = userService.getAll();
@@ -31,5 +35,10 @@ public class AdminController {
     @PostMapping("/create-admin-user")
     public void createAdmin(@RequestBody User user) {
         userService.saveAdmin(user);
+    }
+
+    @GetMapping("/clear-all-cache")
+    public void clearAllCache() {
+        appCache.init();
     }
 }

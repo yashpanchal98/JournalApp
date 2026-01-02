@@ -59,7 +59,7 @@ public class UserService {
         userRepository.save(user);
     }
 
-    //    get all
+    //  get all users
     public List<User> getAll() {
         return userRepository.findAll();
     }
